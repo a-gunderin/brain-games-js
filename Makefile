@@ -1,19 +1,19 @@
 install: install-deps
 
 install-deps:
-    npm ci
+	npm ci
 
 run:
-    bin/nodejs-package.js 10
+	bin/nodejs-package.js 10
 
 brain-games:
-    node bin/brain-games.js
+	node bin/brain-games.js
 
 publish:
-    npm publish --dry-run
+	npm publish --dry-run
 
 lint:
-    npx eslint .
+	npx eslint .
 
 lint-fix:
-    npx eslint --fix .
+	npx eslint --fix .
