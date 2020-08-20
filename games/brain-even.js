@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import name from '../src/name.js';
+import getName from '../src/name.js';
 import rounds from '../src/index.js';
 import getRandomNum from '../src/randomNum.js';
 
 const brainEven = () => {
-  const getName = name();
+  const name = getName();
   const maxNum = 100;
   let correctAnswers = 0;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -26,13 +26,13 @@ const brainEven = () => {
       console.log('Correct!');
     } else {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was ${randomNumIsEven ? '"yes"' : '"no"'}`);
-      console.log(`Let's try again, ${getName}!`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
   }
 
   if (correctAnswers === rounds) {
-    console.log(`Congratulations, ${getName}!`);
+    console.log(`Congratulations, ${name}!`);
   }
 };
 

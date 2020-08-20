@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import name from '../src/name.js';
+import getName from '../src/name.js';
 import rounds from '../src/index.js';
 import getRandomNum from '../src/randomNum.js';
 
 const brainCalc = () => {
-  const getName = name();
+  const name = getName();
   const maxNum = 100;
   let correctAnswers = 0;
   const operators = ['+', '-', '*'];
@@ -25,20 +25,20 @@ const brainCalc = () => {
     };
     console.log(`Question: ${randomNum1} ${randomOperator} ${randomNum2}`);
     const answer = +readlineSync.question('Your answer: ', {
-      defaultInput: 'Empty space',
+      defaultInput: NaN,
     });
     if (answer === result()) {
       correctAnswers += 1;
       console.log('Correct!');
     } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was ${result()}`);
-      console.log(`Let's try again, ${getName}!`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result()}"`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
   }
 
   if (correctAnswers === rounds) {
-    console.log(`Congratulations, ${getName}!`);
+    console.log(`Congratulations, ${name}!`);
   }
 };
 
