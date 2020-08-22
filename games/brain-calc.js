@@ -9,19 +9,16 @@ const brainCalc = () => {
   let correctAnswers = 0;
   const operators = ['+', '-', '*'];
   console.log('What is the result of the expression?');
-
   for (let i = 0; i < rounds; i += 1) {
     const randomNum1 = getRandomNum(maxNum);
     const randomNum2 = getRandomNum(maxNum);
     const randomOperator = operators[getRandomNum(operators.length - 1)];
     const result = () => {
-      if (randomOperator === '+') {
-        return randomNum1 + randomNum2;
+      switch (randomOperator) {
+        case '+': return randomNum1 + randomNum2;
+        case '-': return randomNum1 - randomNum2;
+        default: return randomNum1 * randomNum2;
       }
-      if (randomOperator === '-') {
-        return randomNum1 - randomNum2;
-      }
-      return randomNum1 * randomNum2;
     };
     console.log(`Question: ${randomNum1} ${randomOperator} ${randomNum2}`);
     const answer = +readlineSync.question('Your answer: ', {
@@ -36,7 +33,6 @@ const brainCalc = () => {
       break;
     }
   }
-
   if (correctAnswers === rounds) {
     console.log(`Congratulations, ${name}!`);
   }

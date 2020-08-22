@@ -8,16 +8,13 @@ const brainEven = () => {
   const maxNum = 100;
   let correctAnswers = 0;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
   for (let i = 0; i < rounds; i += 1) {
     const randomNum = getRandomNum(maxNum);
     const randomNumIsEven = (randomNum % 2) === 0;
-
     console.log(`Question: ${randomNum}`);
     const answer = readlineSync.question('Your answer: ', {
       defaultInput: 'Empty space',
     });
-
     if (randomNumIsEven && answer === 'yes') {
       correctAnswers += 1;
       console.log('Correct!');
@@ -30,7 +27,6 @@ const brainEven = () => {
       break;
     }
   }
-
   if (correctAnswers === rounds) {
     console.log(`Congratulations, ${name}!`);
   }
