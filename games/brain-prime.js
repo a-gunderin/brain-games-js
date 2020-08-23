@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import getName from '../src/name.js';
-import settings from '../src/index.js';
+import settings from '../index.js';
 import getRandomNum from '../src/randomNum.js';
 import isPrimeNumber from '../src/isPrimeNumber.js';
 import generatePrimeNumber from '../src/generatePrimeNumber.js';

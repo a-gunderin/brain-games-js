@@ -14,6 +14,10 @@ Games:
 &nbsp;
 ![Node CI](https://github.com/a-gunderin/frontend-project-lvl1/workflows/Node%20CI/badge.svg?branch=master)
 
+## Requirements
+
+Node.js version 13 and higher
+
 ## Setup
 
 ```sh
