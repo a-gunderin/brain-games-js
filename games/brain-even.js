@@ -1,20 +1,23 @@
 import readlineSync from 'readline-sync';
 import getName from '../src/name.js';
-import rounds from '../src/index.js';
+import settings from '../src/index.js';
 import getRandomNum from '../src/randomNum.js';
 
 const brainEven = () => {
   const name = getName();
-  const maxNum = 100;
   let correctAnswers = 0;
+
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < rounds; i += 1) {
-    const randomNum = getRandomNum(maxNum);
+
+  for (let i = 0; i < settings.rounds; i += 1) {
+    const randomNum = getRandomNum(settings.brainEven.maxNum);
     const randomNumIsEven = (randomNum % 2) === 0;
+
     console.log(`Question: ${randomNum}`);
     const answer = readlineSync.question('Your answer: ', {
       defaultInput: 'Empty space',
     });
+
     if (randomNumIsEven && answer === 'yes') {
       correctAnswers += 1;
       console.log('Correct!');
@@ -27,7 +30,8 @@ const brainEven = () => {
       break;
     }
   }
-  if (correctAnswers === rounds) {
+
+  if (correctAnswers === settings.rounds) {
     console.log(`Congratulations, ${name}!`);
   }
 };

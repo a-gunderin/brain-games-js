@@ -1,19 +1,18 @@
 import readlineSync from 'readline-sync';
 import getName from '../src/name.js';
-import rounds from '../src/index.js';
+import settings from '../src/index.js';
 import getRandomNum from '../src/randomNum.js';
 import getGcd from '../src/gcd.js';
 
 const brainGcd = () => {
   const name = getName();
   let correctAnswers = 0;
-  const maxNum = 100;
 
   console.log('Find the greatest common divisor of given numbers.');
 
-  for (let i = 0; i < rounds; i += 1) {
-    const randomNum1 = getRandomNum(maxNum);
-    const randomNum2 = getRandomNum(maxNum);
+  for (let i = 0; i < settings.rounds; i += 1) {
+    const randomNum1 = getRandomNum(settings.brainGcd.maxNum);
+    const randomNum2 = getRandomNum(settings.brainGcd.maxNum);
     const result = getGcd(randomNum1, randomNum2);
     console.log(`Question: ${randomNum1} ${randomNum2}`);
     const answer = +readlineSync.question('Your answer: ', {
@@ -28,7 +27,7 @@ const brainGcd = () => {
       break;
     }
   }
-  if (correctAnswers === rounds) {
+  if (correctAnswers === settings.rounds) {
     console.log(`Congratulations, ${name}!`);
   }
 };
