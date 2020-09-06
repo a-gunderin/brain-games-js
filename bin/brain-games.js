@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import name from '../src/name.js';
+import name from '../src/utils/name.js';
 
 name();
