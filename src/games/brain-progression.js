@@ -1,5 +1,4 @@
 import getRandomNum from '../utils/randomNum.js';
-import getProgression from '../utils/progression.js';
 import runGameEngine from '../index.js';
 
 const settings = {
@@ -8,8 +7,17 @@ const settings = {
   lengthOfProgression: 10,
 };
 const gameDescription = 'What number is missing in the progression?';
+const getProgression = (startNumber, stepNumber, length) => {
+  const progression = [];
+  let number = startNumber;
+  for (let i = 0; i < length; i += 1) {
+    progression.push(number);
+    number += stepNumber;
+  }
+  return progression;
+};
 
-const gameData = () => {
+const getGameData = () => {
   const startNumber = getRandomNum(settings.minNum, settings.maxNum);
   const stepNumber = getRandomNum(settings.minNum, settings.maxNum);
   const progression = getProgression(
@@ -17,16 +25,16 @@ const gameData = () => {
     stepNumber,
     settings.lengthOfProgression,
   );
-  const secretNumber = getRandomNum(0, settings.lengthOfProgression);
-  const secretProgression = [...progression];
-  secretProgression[secretNumber] = '..';
-  const question = `Question: ${secretProgression.join(' ')}`;
-  const result = progression[secretNumber].toString();
-  return [question, result];
+  const secretNumberIndex = getRandomNum(0, settings.lengthOfProgression);
+  const copiedProgression = [...progression];
+  copiedProgression[secretNumberIndex] = '..';
+  const question = copiedProgression.join(' ');
+  const correctAnswer = progression[secretNumberIndex].toString();
+  return [question, correctAnswer];
 };
 
 const runBrainProgression = () => {
-  runGameEngine(gameDescription, gameData);
+  runGameEngine(gameDescription, getGameData);
 };
 
 export default runBrainProgression;

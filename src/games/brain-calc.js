@@ -7,27 +7,30 @@ const settings = {
 };
 const operators = ['+', '-', '*'];
 const gameDescription = 'What is the result of the expression?';
+const calcNums = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      return false;
+  }
+};
 
-const gameData = () => {
-  const randomNum1 = getRandomNum(settings.minNum, settings.maxNum);
-  const randomNum2 = getRandomNum(settings.minNum, settings.maxNum);
-  const randomOperator = operators[getRandomNum(0, operators.length - 1)];
-  const question = `Question: ${randomNum1} ${randomOperator} ${randomNum2}`;
-  const result = () => {
-    switch (randomOperator) {
-      case '+':
-        return (randomNum1 + randomNum2).toString();
-      case '-':
-        return (randomNum1 - randomNum2).toString();
-      default:
-        return (randomNum1 * randomNum2).toString();
-    }
-  };
-  return [question, result()];
+const getGameData = () => {
+  const questionNum1 = getRandomNum(settings.minNum, settings.maxNum);
+  const questionNum2 = getRandomNum(settings.minNum, settings.maxNum);
+  const questionOperator = operators[getRandomNum(0, operators.length - 1)];
+  const question = `${questionNum1} ${questionOperator} ${questionNum2}`;
+  const correctAnswer = calcNums(questionNum1, questionNum2, questionOperator).toString();
+  return [question, correctAnswer];
 };
 
 const runBrainCalc = () => {
-  runGameEngine(gameDescription, gameData);
+  runGameEngine(gameDescription, getGameData);
 };
 
 export default runBrainCalc;
