@@ -1,1 +1,1 @@
-export default (minMum, maxNum) => minMum + Math.round(Math.random() * (maxNum - minMum));
+export default (minNum, maxNum) => minNum + Math.round(Math.random() * (maxNum - minNum));

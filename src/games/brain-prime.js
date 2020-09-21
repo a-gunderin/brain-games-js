@@ -33,9 +33,8 @@ const getGameData = () => {
   const randomPrimeNumber = generatePrimeNumber(getRandomNum(settings.minNum, settings.maxNum));
   const randomNumber = getRandomNum(settings.minNum, settings.maxNum);
   const numbers = [randomPrimeNumber, randomNumber];
-  const randomQuestionNumber = numbers[getRandomNum(0, numbers.length - 1)];
-  const question = randomQuestionNumber;
-  const correctAnswer = isPrimeNumber(randomQuestionNumber) ? 'yes' : 'no';
+  const question = numbers[getRandomNum(0, numbers.length - 1)];
+  const correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 

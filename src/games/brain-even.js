@@ -9,10 +9,10 @@ const gameDescription = 'Answer "yes" if the number is even, otherwise answer "n
 const numIsEven = (num) => num % 2 === 0;
 
 const getGameData = () => {
-  const questionNum = getRandomNum(settings.minNum, settings.maxNum);
-  const questionNumIsEven = numIsEven(questionNum);
+  const question = getRandomNum(settings.minNum, settings.maxNum);
+  const questionNumIsEven = numIsEven(question);
   const correctAnswer = questionNumIsEven ? 'yes' : 'no';
-  return [questionNum, correctAnswer];
+  return [question, correctAnswer];
 };
 
 const runBrainEven = () => {

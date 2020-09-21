@@ -21,11 +21,11 @@ const calcNums = (num1, num2, operator) => {
 };
 
 const getGameData = () => {
-  const questionNum1 = getRandomNum(settings.minNum, settings.maxNum);
-  const questionNum2 = getRandomNum(settings.minNum, settings.maxNum);
-  const questionOperator = operators[getRandomNum(0, operators.length - 1)];
-  const question = `${questionNum1} ${questionOperator} ${questionNum2}`;
-  const correctAnswer = calcNums(questionNum1, questionNum2, questionOperator).toString();
+  const num1 = getRandomNum(settings.minNum, settings.maxNum);
+  const num2 = getRandomNum(settings.minNum, settings.maxNum);
+  const operator = operators[getRandomNum(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const correctAnswer = calcNums(num1, num2, operator).toString();
   return [question, correctAnswer];
 };
 

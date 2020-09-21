@@ -25,8 +25,8 @@ const getGameData = () => {
     stepNumber,
     settings.lengthOfProgression,
   );
-  const secretNumberIndex = getRandomNum(0, settings.lengthOfProgression);
-  const copiedProgression = [...progression];
+  const secretNumberIndex = getRandomNum(0, settings.lengthOfProgression - 1);
+  const copiedProgression = progression.slice();
   copiedProgression[secretNumberIndex] = '..';
   const question = copiedProgression.join(' ');
   const correctAnswer = progression[secretNumberIndex].toString();
