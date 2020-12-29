@@ -16,15 +16,17 @@ Games:
 
 ## Requirements
 
-Node.js version 13 and higher
+Node.js version 13 or higher
 
-## Setup
+## Setup for Linux / macOS systems
 
 ```sh
 $ make install
 ```
 
-## Run games
+<a href="https://asciinema.org/a/381792" target="_blank"><img src="https://asciinema.org/a/381792.svg" /></a>
+
+## Run games on Linux / macOS systems
 
 ```sh
 $ make brain-calc
@@ -41,3 +43,33 @@ $ make brain-prime
 ```sh
 $ make brain-progression
 ```
+
+<a href="https://asciinema.org/a/381795" target="_blank"><img src="https://asciinema.org/a/381795.svg" /></a>
+
+## Setup for Windows
+
+```sh
+$ npm ci
+```
+
+<a href="https://asciinema.org/a/381797" target="_blank"><img src="https://asciinema.org/a/381797.svg" /></a>
+
+## Run games on Windows
+
+```sh
+$ node bin/brain-calc.js
+```
+```sh
+$ node bin/brain-even.js
+```
+```sh
+$ node bin/brain-gcd.js
+```
+```sh
+$ node bin/brain-prime.js
+```
+```sh
+$ node bin/brain-progression.js
+```
+
+<a href="https://asciinema.org/a/381798" target="_blank"><img src="https://asciinema.org/a/381798.svg" /></a>
